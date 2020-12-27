@@ -1,6 +1,6 @@
 <template>
   <div class="cust_container">
-    <div class="content_box">
+    <div class="center_container content_box">
       <div class="left_content">
         <span class="pointer">日照档案信息网</span>
       </div>
@@ -34,8 +34,6 @@ $height: 31px;
   font-size: 14px;
 }
 .content_box {
-  width: $container_width;
-  margin: 0 auto;
   height: $height;
   display: flex;
   justify-content: space-between;

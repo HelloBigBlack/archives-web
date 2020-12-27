@@ -1,13 +1,39 @@
+@import "./element-ui/index.scss";
 $main_dark_color: #7a1e14;
 $main_color: #952418;
-$mian_light_color: #c62f1e;
-$container_width: 1000px;
+$main_light_color: #c62f1e;
+$container_width: 1100px;
 
-body, html {
-  padding: 0;
-  margin: 0;
+.center_container {
+  width: $container_width;
+  margin: 0 auto;
 }
 
 .pointer {
   cursor: pointer;
+}
+
+// 首页卡片中的 列表样式
+.message_list_content {
+  a {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: left;
+    width: calc(100% - 100px);
+  }
+  a,
+  span {
+    font-size: 14px;
+  }
+}
+.message_list-li {
+  height: 34px;
+  line-height: 34px;
+  display: flex;
+  justify-content: space-between;
+  span {
+    width: 110px;
+    color: #858585;
+  }
 }
