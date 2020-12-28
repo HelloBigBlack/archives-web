@@ -11,13 +11,24 @@ const routes = [
     component: FrontIndex
   },
   {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
+    path: "/manager",
+    name: "Manager",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
+      import("../views/manager/Index.vue"),
+    children: [
+      {
+        path: "workNews",
+        name: "workNews",
+        component: () =>
+          import("../views/manager/module-page/WorkNews.vue"),
+      },
+      {
+        path: "addWorkNews",
+        name: "addWorkNews",
+        component: () =>
+          import("../views/manager/module-page/AddNews.vue"),
+      },
+    ]
   }
 ];
 

@@ -4,7 +4,8 @@
       <a
         href="https://mp.weixin.qq.com/s?__biz=MzI3ODA4ODQ2MQ==&mid=2647959780&idx=1&sn=2560e8165597c5fb495048bc27c920d8&chksm=f37c5686c40bdf90fc70bfd2a68182f4528e3217f8238ae8572634ebc3e51eeb30edab9d7ea6&token=761188897&lang=zh_CN#rd"
         target="_blank"
-      >日照市档案馆关于巡察整改进展情况的通报</a>
+      >日照市档案馆关于巡察整改进展情况的通报
+      </a>
     </div>
     <div class="message_content_box">
       <div class="left_carousel">
