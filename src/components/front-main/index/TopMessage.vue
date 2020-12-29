@@ -4,8 +4,7 @@
       <a
         href="https://mp.weixin.qq.com/s?__biz=MzI3ODA4ODQ2MQ==&mid=2647959780&idx=1&sn=2560e8165597c5fb495048bc27c920d8&chksm=f37c5686c40bdf90fc70bfd2a68182f4528e3217f8238ae8572634ebc3e51eeb30edab9d7ea6&token=761188897&lang=zh_CN#rd"
         target="_blank"
-      >日照市档案馆关于巡察整改进展情况的通报
-      </a>
+      >日照市档案馆关于巡察整改进展情况的通报</a>
     </div>
     <div class="message_content_box">
       <div class="left_carousel">
@@ -49,37 +48,9 @@
         <div class="message_list_box">
           <div class="message_list_content">
             <ul>
-              <li class="message_list-li">
-                <a href="#">· 云寻觅“海上香料之路”——“‘香料之路’档案”国际协调会云端召开</a>
-                <span>[2020-12-06]</span>
-              </li>
-              <li class="message_list-li">
-                <a href="#">· 云寻觅“海上香料之路”——“‘香料之路’档案”国际协调会云端召开</a>
-                <span>[2020-12-06]</span>
-              </li>
-              <li class="message_list-li">
-                <a href="#">· 云寻觅“海上香料之路”——“‘香料之路’档案”国际协调会云端召开</a>
-                <span>[2020-12-06]</span>
-              </li>
-              <li class="message_list-li">
-                <a href="#">· 云寻觅“海上香料之路”——“‘香料之路’档案”国际协调会云端召开</a>
-                <span>[2020-12-06]</span>
-              </li>
-              <li class="message_list-li">
-                <a href="#">· 云寻觅“海上香料之路”——“‘香料之路’档案”国际协调会云端召开</a>
-                <span>[2020-12-06]</span>
-              </li>
-              <li class="message_list-li">
-                <a href="#">· 云寻觅“海上香料之路”——“‘香料之路’档案”国际协调会云端召开</a>
-                <span>[2020-12-06]</span>
-              </li>
-              <li class="message_list-li">
-                <a href="#">· 云寻觅“海上香料之路”——“‘香料之路’档案”国际协调会云端召开</a>
-                <span>[2020-12-06]</span>
-              </li>
-              <li class="message_list-li">
-                <a href="#">· 云寻觅“海上香料之路”——“‘香料之路’档案”国际协调会云端召开</a>
-                <span>[2020-12-06]</span>
+              <li class="message_list-li" v-for="(item, index) in tableData" :key="index">
+                <a :href="item.articleLink" target="blank">· {{item.title}}</a>
+                <span>[{{item.insertTime | formDate}}]</span>
               </li>
             </ul>
           </div>
@@ -90,18 +61,39 @@
 </template>
 
 <script>
+import api from '@/api/managerApi.js'
 export default {
   data: function() {
     return {
+      tableData: [],
       currentIndex: 1
     }
   },
   methods: {
+    getNews() {
+      api
+        .getWorkNews()
+        .then(res => {
+          let datas = res || []
+          if(datas.length >= 8) {
+            datas = datas.slice(0, 8);
+          }
+          this.tableData = datas;
+        })
+        .catch(error => {
+          this.$message({
+            message: '查询失败！',
+            type: 'error'
+          })
+        })
+    },
     changeIndex(index) {
       this.currentIndex = index || 1
     }
   },
-  created() {}
+  created() {
+    this.getNews()
+  }
 }
 </script>
 
